@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аспаз әлемі</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffaf3;
+      color: #2b2b2b;
+    }
+    header {
+      background: linear-gradient(90deg, #ff7b00, #ff9b3d);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+    .container {
+      width: 85%;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    .dish {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      overflow: hidden;
+      width: 320px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .dish:hover {
+      transform: scale(1.04);
+    }
+    .dish img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .dish h3 {
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      background-color: #fff3e0;
+      margin: 0;
+    }
+    .recipe {
+      display: none;
+      padding: 15px;
+      background-color: #fffaf0;
+      border-top: 2px solid #ffb366;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    footer {
+      background: linear-gradient(90deg, #ff7b00, #ff9b3d);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    .content {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6em;
+    }
+    .chef-photo {
+      width: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍳 Аспаз әлемі</h1>
+  <nav>
+    <a href="#" onclick="showPage('home')">Басты бет</a>
+    <a href="#" onclick="showPage('about')">Аспаз туралы</a>
+    <a href="#" onclick="showPage('contact')">Байланыс</a>
+  </nav>
+</header>
+
+<!-- Басты бет -->
+<div id="home" class="page">
+  <section class="hero">
+    <h2>Дәмді тағамдар әлеміне қош келдіңіз!</h2>
+    <p>Мұнда ең танымал қазақ және әлемдік тағамдардың рецептерін таба аласыз.</p>
+  </section>
+
+  <div class="container">
+    <div class="dish" onclick="toggleRecipe('recipe1')">
+      <img src="https://images.unsplash.com/photo-1648992280834-77e0a0bbd10d?auto=format&fit=crop&w=1200&q=80" alt="Бешбармақ">
+      <h3>Бешбармақ</h3>
+      <div class="recipe" id="recipe1">
+        <p><b>Құрамы:</b> ет (жылқы немесе сиыр), қамыр, пияз, тұз, бұрыш.</p>
+        <p><b>Дайындау тәсілі:</b> Етті қайнатып пісіріп, қамыр илеп жұқа жайып, кесіледі. Ет дайын болған соң, қамыр пісіріліп, үстіне ет пен пияз қосылады. Сорпасымен бірге ұсынылады.</p>
+      </div>
+    </div>
+
+    <div class="dish" onclick="toggleRecipe('recipe2')">
+      <img src="https://images.unsplash.com/photo-1653585290572-8b016c04dc3f?auto=format&fit=crop&w=1200&q=80" alt="Палау">
+      <h3>Палау</h3>
+      <div class="recipe" id="recipe2">
+        <p><b>Құрамы:</b> күріш, сәбіз, пияз, ет, май, тұз, дәмдеуіштер.</p>
+        <p><b>Дайындау тәсілі:</b> Етті майда қуырып, үстіне пияз бен сәбіз қосылады. Содан кейін күріш салынып, үстінен су құйылады. Баяу отта күріш піскенше демделеді.</p>
+      </div>
+    </div>
+
+    <div class="dish" onclick="toggleRecipe('recipe3')">
+      <img src="https://images.unsplash.com/photo-1651784669649-29cf0e9036f0?auto=format&fit=crop&w=1200&q=80" alt="Борщ">
+      <h3>Борщ</h3>
+      <div class="recipe" id="recipe3">
+        <p><b>Құрамы:</b> ет, қызылша, картоп, сәбіз, пияз, капуста, қызанақ пастасы, тұз, аскөк.</p>
+        <p><b>Дайындау тәсілі:</b> Еттен сорпа қайнатылады. Қызылша мен көкөністер майда қуырылып, кейін сорпаға қосылады. Бәрі бірге пісіп шыққанда үстіне аскөк себіледі.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Аспаз туралы -->
+<div id="about" class="page" style="display:none;">
+  <section class="content">
+    <h2>Аспаз туралы</h2>
+    <p>Сәлеметсіз бе! Мен — кәсіби аспаз, 10 жылдан астам тәжірибем бар.  
+    Қазақ және еуропалық асхананың түрлі тағамдарын әзірлеуді жақсы көремін.  
+    Бұл сайтта мен өзімнің ең сүйікті рецептерімді бөлісемін.</p>
+    <img src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=600&q=80" alt="Аспаз суреті" class="chef-photo">
+  </section>
+</div>
+
+<!-- Байланыс беті -->
+<div id="contact" class="page" style="display:none;">
+  <section class="content">
+    <h2>Байланыс</h2>
+    <p>Егер сұрақтарыңыз болса немесе жаңа рецепт ұсынғыңыз келсе, төмендегі байланыс арқылы жазыңыз:</p>
+    <ul style="list-style:none; padding:0;">
+      <li>📧 Email: <a href="mailto:chef@mail.com">chef@mail.com</a></li>
+      <li>📞 Телефон: +7 (700) 123-45-67</li>
+      <li>📍 Мекенжай: Сәтбаев қаласы</li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  <p>© 2025 Аспаз әлемі | Барлық құқықтар қорғалған</p>
+</footer>
+
+<script>
+  function toggleRecipe(id) {
+    const recipe = document.getElementById(id);
+    recipe.style.display = recipe.style.display === "block" ? "none" : "block";
+  }
+
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+      page.style.display = 'none';
+    });
+    document.getElementById(pageId).style.display = 'block';
+    window.scrollTo(0,0);
+  }
+</script>
+
+</body>
+</html>
